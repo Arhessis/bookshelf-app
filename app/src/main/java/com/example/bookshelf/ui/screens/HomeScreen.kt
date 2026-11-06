@@ -81,7 +81,7 @@ fun BookCard(book: BookItem, modifier: Modifier = Modifier) {
     ) {
         AsyncImage(
             model = ImageRequest.Builder(context = LocalContext.current)
-                .data(book.volumeInfo.imageLinks?.httpsThumbnail)
+                .data(book.volumeInfo.imageLinks?.localDrawableRes ?: book.volumeInfo.imageLinks?.httpsThumbnail)
                 .crossfade(true)
                 .build(),
             contentDescription = book.volumeInfo.title,

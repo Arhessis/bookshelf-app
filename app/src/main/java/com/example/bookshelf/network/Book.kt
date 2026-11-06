@@ -22,7 +22,8 @@ data class VolumeInfo(
 
 @Serializable
 data class ImageLinks(
-    val thumbnail: String
+    val thumbnail: String = "",
+    val localDrawableRes: Int? = null
 ) {
     val httpsThumbnail: String
         get() = thumbnail.replace("http:", "https:")

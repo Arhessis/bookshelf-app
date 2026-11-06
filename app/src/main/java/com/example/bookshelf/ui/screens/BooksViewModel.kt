@@ -1,5 +1,6 @@
 package com.example.bookshelf.ui.screens
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -35,9 +36,8 @@ class BooksViewModel(private val bookshelfRepository: BookshelfRepository) : Vie
             try {
                 val result = bookshelfRepository.getBooks(query)
                 _uiState.value = BooksUiState.Success(result)
-            } catch (e: IOException) {
-                _uiState.value = BooksUiState.Error
-            } catch (e: HttpException) {
+            } catch (e: Exception) {
+                Log.e("BooksViewModel", "Network error", e)
                 _uiState.value = BooksUiState.Error
             }
         }

@@ -25,6 +25,6 @@ class DefaultAppContainer : AppContainer {
     }
 
     override val bookshelfRepository: BookshelfRepository by lazy {
-        DefaultBookshelfRepository(retrofitService)
+        FakeBookshelfRepository()
     }
 }
