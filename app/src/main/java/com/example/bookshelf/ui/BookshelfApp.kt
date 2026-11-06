@@ -13,8 +13,9 @@ import com.example.bookshelf.ui.screens.HomeScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun BookshelfApp() {
-    val booksViewModel: BooksViewModel = viewModel(factory = BooksViewModel.Factory)
+fun BookshelfApp(
+    booksViewModel: BooksViewModel
+) {
     val uiState by booksViewModel.uiState.collectAsState()
 
     Scaffold(
